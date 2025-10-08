@@ -1,0 +1,6 @@
+/* Si usas Tailwind: */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Si no usas Tailwind, puedes dejarlo vacío o poner estilos globales */
