@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -392,7 +393,7 @@ export default function TableroOperativoPage() {
 						Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-4 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-4 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar por OC / línea / proveedor"
 						value={q}
@@ -402,19 +403,19 @@ export default function TableroOperativoPage() {
 						<SelectTrigger>
 							<SelectValue placeholder="Proveedor" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{proveedores.map((p) => (
 								<SelectItem key={p} value={p}>
 									{p}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 					<Select value={modelo} onValueChange={(v) => setModelo(v as any)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Modelo" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "ALFA", "TIF", "HIBRIDO", "MAQUILA"] as const).map(
 								(m) => (
 									<SelectItem key={m} value={m}>
@@ -422,19 +423,19 @@ export default function TableroOperativoPage() {
 									</SelectItem>
 								)
 							)}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 					<Select value={semana} onValueChange={(v) => setSemana(v as any)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Semana" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{semanas.map((w) => (
 								<SelectItem key={w} value={w}>
 									{w}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 				</CardContent>
 			</Card>
@@ -444,8 +445,7 @@ export default function TableroOperativoPage() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Planificado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{fmt.format(metrics.plan)}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{fmt.format(metrics.plan)}</div>
 						<div className="text-xs text-muted-foreground">Unidades</div>
 					</CardContent>
 				</Card>
@@ -453,8 +453,7 @@ export default function TableroOperativoPage() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Recepcionado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{fmt.format(metrics.recv)}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{fmt.format(metrics.recv)}</div>
 						<div className="text-xs text-muted-foreground">Unidades</div>
 						<Progress value={metrics.fillRate} className="mt-2" />
 						<div className="text-xs text-muted-foreground mt-1">
@@ -466,7 +465,7 @@ export default function TableroOperativoPage() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Estados</CardTitle>
 					</CardHeader>
-					<CardContent className="flex gap-2 flex-wrap">
+					<CardContent className="flex gap-2 flex-wrap overflow-visible">
 						<Badge className="bg-emerald-100 text-emerald-800">
 							<CheckCircle2 className="w-3 h-3 mr-1" />
 							Cumplidos {metrics.cumplidos}
@@ -488,7 +487,7 @@ export default function TableroOperativoPage() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Ayuda</CardTitle>
 					</CardHeader>
-					<CardContent className="text-sm text-muted-foreground">
+					<CardContent className="text-sm text-muted-foreground overflow-visible">
 						Demostración con datos en memoria. No guarda cambios al recargar.
 					</CardContent>
 				</Card>
@@ -500,7 +499,7 @@ export default function TableroOperativoPage() {
 						Plan vs Recepción por Semana
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="h-64">
+				<CardContent className="h-64 overflow-visible">
 					<ResponsiveContainer width="100%" height="100%">
 						<BarChart data={series}>
 							<CartesianGrid strokeDasharray="3 3" />
@@ -531,8 +530,7 @@ export default function TableroOperativoPage() {
 								Compromisos ({filtered.length})
 							</CardTitle>
 						</CardHeader>
-						<CardContent>
-							<Table>
+						<CardContent className="overflow-visible"><Table>
 								<TableHeader>
 									<TableRow>
 										<TableHead>OC</TableHead>
@@ -588,8 +586,7 @@ export default function TableroOperativoPage() {
 								Recepciones
 							</CardTitle>
 						</CardHeader>
-						<CardContent>
-							<Table>
+						<CardContent className="overflow-visible"><Table>
 								<TableHeader>
 									<TableRow>
 										<TableHead>Guía</TableHead>
@@ -635,8 +632,7 @@ export default function TableroOperativoPage() {
 								No Conformidades
 							</CardTitle>
 						</CardHeader>
-						<CardContent>
-							<Table>
+						<CardContent className="overflow-visible"><Table>
 								<TableHeader>
 									<TableRow>
 										<TableHead>OC</TableHead>
@@ -674,8 +670,7 @@ export default function TableroOperativoPage() {
 								Documentos
 							</CardTitle>
 						</CardHeader>
-						<CardContent>
-							<Table>
+						<CardContent className="overflow-visible"><Table>
 								<TableHeader>
 									<TableRow>
 										<TableHead>Tipo</TableHead>

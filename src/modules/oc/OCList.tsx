@@ -108,7 +108,7 @@ export default function OCList() {
 				<CardHeader className="pb-2">
 					<CardTitle className="text-base">Búsqueda</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 gap-3">
+				<CardContent className="grid grid-cols-1 gap-3 overflow-visible">
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-3">
 						<Input
 							placeholder="Buscar por OC / proveedor / estado"
@@ -137,8 +137,7 @@ export default function OCList() {
 				<CardHeader className="pb-2">
 					<CardTitle className="text-base">Listado ({sorted.length})</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>

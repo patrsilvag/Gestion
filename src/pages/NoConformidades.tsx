@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 // src/pages/NoConformidades.tsx
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -182,7 +183,7 @@ export default function NoConformidades() {
 						<Filter className="w-4 h-4" /> Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar por OC / línea / proveedor / motivo"
 						value={q}
@@ -195,13 +196,13 @@ export default function NoConformidades() {
 						<SelectTrigger>
 							<SelectValue placeholder="Proveedor" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{proveedores.map((p) => (
 								<SelectItem key={p} value={p}>
 									{p}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select
@@ -211,7 +212,7 @@ export default function NoConformidades() {
 						<SelectTrigger>
 							<SelectValue placeholder="Estado" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(
 								[
 									"Todos",
@@ -225,7 +226,7 @@ export default function NoConformidades() {
 									{e}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Input
@@ -247,24 +248,21 @@ export default function NoConformidades() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Total</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{totals.total}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{totals.total}</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Abiertas</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<Badge className={estadoClase("ABIERTA")}>{totals.abiertas}</Badge>
+					<CardContent className="overflow-visible"><Badge className={estadoClase("ABIERTA")}>{totals.abiertas}</Badge>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">En análisis</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<Badge className={estadoClase("EN_ANALISIS")}>
+					<CardContent className="overflow-visible"><Badge className={estadoClase("EN_ANALISIS")}>
 							{totals.analisis}
 						</Badge>
 					</CardContent>
@@ -273,8 +271,7 @@ export default function NoConformidades() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Resueltas</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<Badge className={estadoClase("RESUELTA")}>
+					<CardContent className="overflow-visible"><Badge className={estadoClase("RESUELTA")}>
 							{totals.resueltas}
 						</Badge>
 					</CardContent>
@@ -283,8 +280,7 @@ export default function NoConformidades() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Cerradas</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<Badge className={estadoClase("CERRADA")}>{totals.cerradas}</Badge>
+					<CardContent className="overflow-visible"><Badge className={estadoClase("CERRADA")}>{totals.cerradas}</Badge>
 					</CardContent>
 				</Card>
 			</div>
@@ -296,8 +292,7 @@ export default function NoConformidades() {
 						<AlertCircle className="w-4 h-4" /> Listado ({sorted.length})
 					</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>

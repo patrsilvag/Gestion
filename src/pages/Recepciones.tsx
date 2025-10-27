@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 // src/pages/Recepciones.tsx
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -184,7 +185,7 @@ export default function Recepciones() {
 						<Filter className="w-4 h-4" /> Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar por Guía / OC / Proveedor"
 						value={q}
@@ -197,13 +198,13 @@ export default function Recepciones() {
 						<SelectTrigger>
 							<SelectValue placeholder="Proveedor" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{proveedores.map((p) => (
 								<SelectItem key={p} value={p}>
 									{p}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select
@@ -213,13 +214,13 @@ export default function Recepciones() {
 						<SelectTrigger>
 							<SelectValue placeholder="Calidad" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "CONFORME", "NO_CONFORME"] as const).map((c) => (
 								<SelectItem key={c} value={c}>
 									{c}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Input
@@ -241,8 +242,7 @@ export default function Recepciones() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Cantidad total</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{totals.total.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -251,8 +251,7 @@ export default function Recepciones() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Conforme</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{totals.conformes.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -261,8 +260,7 @@ export default function Recepciones() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">No Conforme</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{totals.noConformes.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -276,8 +274,7 @@ export default function Recepciones() {
 						<Truck className="w-4 h-4" /> Listado ({sorted.length})
 					</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>

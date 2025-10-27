@@ -176,8 +176,7 @@ export default function Dashboard() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Planificado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{fmt.format(plan)}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{fmt.format(plan)}</div>
 						<div className="text-xs text-muted-foreground">Unidades</div>
 					</CardContent>
 				</Card>
@@ -185,8 +184,7 @@ export default function Dashboard() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Recepcionado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{fmt.format(recv)}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{fmt.format(recv)}</div>
 						<div className="text-xs text-muted-foreground">Unidades</div>
 					</CardContent>
 				</Card>
@@ -194,7 +192,7 @@ export default function Dashboard() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Fill Rate</CardTitle>
 					</CardHeader>
-					<CardContent className="flex items-center gap-2">
+					<CardContent className="flex items-center gap-2 overflow-visible">
 						<Gauge className="w-5 h-5" />
 						<div className="text-2xl font-bold">{fill}%</div>
 					</CardContent>
@@ -203,8 +201,7 @@ export default function Dashboard() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">ZC activas</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{zcSeed.length}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{zcSeed.length}</div>
 						<div className="text-xs text-muted-foreground">
 							No conformidades
 						</div>
@@ -221,7 +218,7 @@ export default function Dashboard() {
 							Plan vs Recepción por Semana
 						</CardTitle>
 					</CardHeader>
-					<CardContent className="h-64">
+					<CardContent className="h-64 overflow-visible">
 						<ResponsiveContainer width="100%" height="100%">
 							<BarChart data={series}>
 								<CartesianGrid strokeDasharray="3 3" />
@@ -241,7 +238,7 @@ export default function Dashboard() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-base">Distribución por Estado</CardTitle>
 					</CardHeader>
-					<CardContent className="h-64">
+					<CardContent className="h-64 overflow-visible">
 						<ResponsiveContainer width="100%" height="100%">
 							<PieChart>
 								<Pie
@@ -270,7 +267,7 @@ export default function Dashboard() {
 						Top 5 Proveedores por Plan
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="h-64">
+				<CardContent className="h-64 overflow-visible">
 					<ResponsiveContainer width="100%" height="100%">
 						<BarChart
 							data={proveedores}
@@ -297,8 +294,7 @@ export default function Dashboard() {
 							<Truck className="w-4 h-4" /> Últimas recepciones
 						</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<Table>
+					<CardContent className="overflow-visible"><Table>
 							<TableHeader>
 								<TableRow>
 									<TableHead>Guía</TableHead>
@@ -343,8 +339,7 @@ export default function Dashboard() {
 							<FileText className="w-4 h-4" /> Documentos recientes
 						</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<Table>
+					<CardContent className="overflow-visible"><Table>
 							<TableHeader>
 								<TableRow>
 									<TableHead>Tipo</TableHead>

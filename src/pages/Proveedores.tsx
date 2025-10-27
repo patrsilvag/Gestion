@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 // src/pages/Proveedores.tsx
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -246,7 +247,7 @@ export default function Proveedores() {
 						<Filter className="w-4 h-4" /> Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-4 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-4 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar proveedor"
 						value={q}
@@ -259,13 +260,13 @@ export default function Proveedores() {
 						<SelectTrigger>
 							<SelectValue placeholder="Top N" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "5", "10", "20"] as const).map((t) => (
 								<SelectItem key={t} value={t}>
 									{t === "Todos" ? "Todos" : `Top ${t}`}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select
@@ -275,7 +276,7 @@ export default function Proveedores() {
 						<SelectTrigger>
 							<SelectValue placeholder="Modelo" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "ALFA", "TIF", "HIBRIDO", "MAQUILA"] as const).map(
 								(m) => (
 									<SelectItem key={m} value={m}>
@@ -283,7 +284,7 @@ export default function Proveedores() {
 									</SelectItem>
 								)
 							)}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 				</CardContent>
 			</Card>
@@ -294,8 +295,7 @@ export default function Proveedores() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Plan</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{kpis.plan.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -304,8 +304,7 @@ export default function Proveedores() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Recepcionado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{kpis.recv.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -314,8 +313,7 @@ export default function Proveedores() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Saldo</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{kpis.saldo.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -324,16 +322,14 @@ export default function Proveedores() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Fill Rate</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{kpis.fill}%</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{kpis.fill}%</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Estados</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="flex flex-wrap gap-2 text-sm">
+					<CardContent className="overflow-visible"><div className="flex flex-wrap gap-2 text-sm">
 							<Badge className="bg-blue-100 text-blue-800">
 								Abiertos {kpis.ab}
 							</Badge>
@@ -353,8 +349,7 @@ export default function Proveedores() {
 				<CardHeader className="pb-2">
 					<CardTitle className="text-base">Listado ({sorted.length})</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>

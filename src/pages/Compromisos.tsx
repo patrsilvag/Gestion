@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 // src/pages/Compromisos.tsx
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -192,7 +193,7 @@ export default function Compromisos() {
 						<Filter className="w-4 h-4" /> Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar por OC / línea / proveedor"
 						value={q}
@@ -205,20 +206,20 @@ export default function Compromisos() {
 						<SelectTrigger>
 							<SelectValue placeholder="Proveedor" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{proveedores.map((p) => (
 								<SelectItem key={p} value={p}>
 									{p}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select value={modelo} onValueChange={(v) => setModelo(v as any)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Modelo" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "ALFA", "TIF", "HIBRIDO", "MAQUILA"] as const).map(
 								(m) => (
 									<SelectItem key={m} value={m}>
@@ -226,27 +227,27 @@ export default function Compromisos() {
 									</SelectItem>
 								)
 							)}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select value={semana} onValueChange={(v) => setSemana(v as any)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Semana" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{semanas.map((w) => (
 								<SelectItem key={w} value={w}>
 									{w}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select value={estado} onValueChange={(v) => setEstado(v as any)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Estado" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(
 								[
 									"Todos",
@@ -262,7 +263,7 @@ export default function Compromisos() {
 									{e}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 				</CardContent>
 			</Card>
@@ -273,8 +274,7 @@ export default function Compromisos() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Planificado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{fmtCLP0.format(totals.plan)}
 						</div>
 						<div className="text-xs text-muted-foreground">Unidades</div>
@@ -284,8 +284,7 @@ export default function Compromisos() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Recepcionado</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{fmtCLP0.format(totals.recv)}
 						</div>
 						<div className="text-xs text-muted-foreground">Unidades</div>
@@ -299,8 +298,7 @@ export default function Compromisos() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Saldo</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{fmtCLP0.format(totals.saldo)}
 						</div>
 						<div className="text-xs text-muted-foreground">
@@ -312,7 +310,7 @@ export default function Compromisos() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Ayuda</CardTitle>
 					</CardHeader>
-					<CardContent className="text-sm text-muted-foreground">
+					<CardContent className="text-sm text-muted-foreground overflow-visible">
 						Datos 100% en memoria. Click en la{" "}
 						<span className="font-medium">OC</span> para detalle.
 					</CardContent>
@@ -324,8 +322,7 @@ export default function Compromisos() {
 				<CardHeader className="pb-2">
 					<CardTitle className="text-base">Listado ({sorted.length})</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>

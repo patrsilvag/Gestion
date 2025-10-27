@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -169,7 +170,7 @@ export default function ReceptionQualityCheck() {
 						<Filter className="w-4 h-4" /> Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-6 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-6 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar por Guía / OC / Proveedor"
 						value={q}
@@ -182,26 +183,26 @@ export default function ReceptionQualityCheck() {
 						<SelectTrigger>
 							<SelectValue placeholder="Proveedor" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{proveedores.map((p) => (
 								<SelectItem key={p} value={p}>
 									{p}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select value={calidad} onValueChange={(v) => setCalidad(v as any)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Calidad" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todas", "CONFORME", "NO_CONFORME"] as const).map((c) => (
 								<SelectItem key={c} value={c}>
 									{c}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Input
@@ -227,32 +228,28 @@ export default function ReceptionQualityCheck() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Total guías</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{kpis.total}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{kpis.total}</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Conforme</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{kpis.conforme}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{kpis.conforme}</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">No conforme</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{kpis.noConforme}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{kpis.noConforme}</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Cantidad total</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">
 							{kpis.qtyTotal.toLocaleString("es-CL")}
 						</div>
 					</CardContent>
@@ -266,8 +263,7 @@ export default function ReceptionQualityCheck() {
 						Listado ({filtered.length})
 					</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>Guía</TableHead>

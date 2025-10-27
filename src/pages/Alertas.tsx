@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 // src/pages/Alertas.tsx
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -273,7 +274,7 @@ export default function Alertas() {
 						<AlertTriangle className="w-4 h-4" /> Reglas
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3 overflow-visible">
 					<div>
 						<div className="text-xs text-muted-foreground mb-1">
 							Vencido &gt; X días
@@ -320,13 +321,13 @@ export default function Alertas() {
 							<SelectTrigger>
 								<SelectValue placeholder="Proveedor" />
 							</SelectTrigger>
-							<SelectContent>
+							<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 								{proveedores.map((p) => (
 									<SelectItem key={p} value={p}>
 										{p}
 									</SelectItem>
 								))}
-							</SelectContent>
+							</SelectContent></SelectPortal>
 						</Select>
 					</div>
 					<div className="grid grid-cols-2 gap-3">
@@ -336,7 +337,7 @@ export default function Alertas() {
 								<SelectTrigger>
 									<SelectValue placeholder="Modelo" />
 								</SelectTrigger>
-								<SelectContent>
+								<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 									{(
 										["Todos", "ALFA", "TIF", "HIBRIDO", "MAQUILA"] as const
 									).map((m) => (
@@ -344,7 +345,7 @@ export default function Alertas() {
 											{m}
 										</SelectItem>
 									))}
-								</SelectContent>
+								</SelectContent></SelectPortal>
 							</Select>
 						</div>
 						<div>
@@ -353,13 +354,13 @@ export default function Alertas() {
 								<SelectTrigger>
 									<SelectValue placeholder="Semana" />
 								</SelectTrigger>
-								<SelectContent>
+								<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 									{semanas.map((w) => (
 										<SelectItem key={w} value={w}>
 											{w}
 										</SelectItem>
 									))}
-								</SelectContent>
+								</SelectContent></SelectPortal>
 							</Select>
 						</div>
 					</div>
@@ -382,15 +383,14 @@ export default function Alertas() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Total alertas</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{totals.total}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{totals.total}</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Por tipo</CardTitle>
 					</CardHeader>
-					<CardContent className="flex flex-wrap gap-2 text-sm">
+					<CardContent className="flex flex-wrap gap-2 text-sm overflow-visible">
 						<Badge variant="outline">
 							Vencido: {totals.porTipo.VENCIDO ?? 0}
 						</Badge>
@@ -406,7 +406,7 @@ export default function Alertas() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Severidad</CardTitle>
 					</CardHeader>
-					<CardContent className="flex flex-wrap gap-2 text-sm">
+					<CardContent className="flex flex-wrap gap-2 text-sm overflow-visible">
 						<Badge className={sevBadgeClass("ALTA")}>
 							Alta: {totals.porSev.ALTA ?? 0}
 						</Badge>
@@ -427,8 +427,7 @@ export default function Alertas() {
 						Listado ({filtered.length})
 					</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>Tipo</TableHead>

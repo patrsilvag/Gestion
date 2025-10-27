@@ -1,3 +1,4 @@
+import { Portal as SelectPortal } from "@radix-ui/react-select";
 // src/pages/Documentos.tsx
 import React, { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -229,7 +230,7 @@ export default function Documentos() {
 						<Filter className="w-4 h-4" /> Filtros
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="grid grid-cols-1 md:grid-cols-6 gap-3">
+				<CardContent className="grid grid-cols-1 md:grid-cols-6 gap-3 overflow-visible">
 					<Input
 						placeholder="Buscar por OC / Folio / Proveedor"
 						value={q}
@@ -242,13 +243,13 @@ export default function Documentos() {
 						<SelectTrigger>
 							<SelectValue placeholder="Tipo" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "GUIA", "NC", "EVIDENCIA"] as const).map((t) => (
 								<SelectItem key={t} value={t}>
 									{t}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select
@@ -258,7 +259,7 @@ export default function Documentos() {
 						<SelectTrigger>
 							<SelectValue placeholder="Estado" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{(["Todos", "VALIDO", "OBSERVADO", "RECHAZADO"] as const).map(
 								(e) => (
 									<SelectItem key={e} value={e}>
@@ -266,20 +267,20 @@ export default function Documentos() {
 									</SelectItem>
 								)
 							)}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Select value={proveedor} onValueChange={(v) => setProveedor(v)}>
 						<SelectTrigger>
 							<SelectValue placeholder="Proveedor" />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectPortal><SelectContent className="z-[2147483647]" position="popper" side="bottom" sideOffset={8}>
 							{proveedores.map((p) => (
 								<SelectItem key={p} value={p}>
 									{p}
 								</SelectItem>
 							))}
-						</SelectContent>
+						</SelectContent></SelectPortal>
 					</Select>
 
 					<Input
@@ -301,15 +302,14 @@ export default function Documentos() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Total</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="text-2xl font-bold">{totals.total}</div>
+					<CardContent className="overflow-visible"><div className="text-2xl font-bold">{totals.total}</div>
 					</CardContent>
 				</Card>
 				<Card>
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Por Tipo</CardTitle>
 					</CardHeader>
-					<CardContent className="flex flex-wrap gap-2">
+					<CardContent className="flex flex-wrap gap-2 overflow-visible">
 						{Object.entries(totals.porTipo).map(([k, v]) => (
 							<Badge key={k} variant="outline">
 								{k}: {v}
@@ -321,7 +321,7 @@ export default function Documentos() {
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm">Por Estado</CardTitle>
 					</CardHeader>
-					<CardContent className="flex flex-wrap gap-2">
+					<CardContent className="flex flex-wrap gap-2 overflow-visible">
 						{Object.entries(totals.porEstado).map(([k, v]) => (
 							<Badge key={k} className={estadoClase(k as Row["estado"])}>
 								{k}: {v}
@@ -338,8 +338,7 @@ export default function Documentos() {
 						<FileText className="w-4 h-4" /> Listado ({sorted.length})
 					</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<Table>
+				<CardContent className="overflow-visible"><Table>
 						<TableHeader>
 							<TableRow>
 								<TableHead>

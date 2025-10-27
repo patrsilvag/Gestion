@@ -30,7 +30,7 @@ export default function MaquilaConciliation() {
         <CardTitle>Conciliación de Inventario y Movimientos de Maquila</CardTitle>
         <CardDescription>Cargar movimientos del período para cruzar contra stock y guías.</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 overflow-visible">
         <Input type="file" onChange={(e) => handleImport(e.target.files[0])} accept=".csv,.xlsx" />
         <Button onClick={handleImport} variant="outline"><Upload className="mr-2 h-4 w-4" /> Importar Movimientos</Button>
 

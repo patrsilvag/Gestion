@@ -17,8 +17,7 @@ export default function OperationalDashboard() {
           </CardTitle>
           <Badge variant="destructive">{alerts.critical.length} Pendientes</Badge>
         </CardHeader>
-        <CardContent>
-          <ul className="list-disc pl-5">
+        <CardContent className="overflow-visible"><ul className="list-disc pl-5">
             {alerts.critical.map(alert => (
               <li key={alert.id} className="text-sm text-destructive hover:underline cursor-pointer">
                 {alert.message} ({alert.slaDays} días sin resolver)
@@ -34,19 +33,19 @@ export default function OperationalDashboard() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>KPI Alfa Semanal</CardHeader>
-          <CardContent className="text-2xl font-bold text-primary">{kpis.alfa}%</CardContent>
+          <CardContent className="text-2xl font-bold text-primary overflow-visible">{kpis.alfa}%</CardContent>
         </Card>
         <Card>
           <CardHeader>Promedio OTIF</CardHeader>
-          <CardContent className="text-2xl font-bold">{kpis.otif}%</CardContent>
+          <CardContent className="text-2xl font-bold overflow-visible">{kpis.otif}%</CardContent>
         </Card>
         <Card>
           <CardHeader>% No Conformes (NC)</CardHeader>
-          <CardContent className="text-2xl font-bold text-destructive">{kpis.ncRate}%</CardContent>
+          <CardContent className="text-2xl font-bold text-destructive overflow-visible">{kpis.ncRate}%</CardContent>
         </Card>
         <Card>
           <CardHeader>Aging Atrasos</CardHeader>
-          <CardContent className="text-2xl font-bold">{kpis.agingDays} días</CardContent>
+          <CardContent className="text-2xl font-bold overflow-visible">{kpis.agingDays} días</CardContent>
         </Card>
       </div>
       
