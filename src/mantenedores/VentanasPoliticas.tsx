@@ -31,7 +31,7 @@ export default function VentanasPoliticas() {
             
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Modelo</label>
-              <Select value={form['modelo']} onValueChange={(v)=>setForm(s=>({...s, 'modelo': v}))}>
+              <Select value={form['modelo']} onValueChange={(v)=>setForm((s: any) =>({...s, 'modelo': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="alfa">Alfa</SelectItem>
@@ -44,13 +44,13 @@ export default function VentanasPoliticas() {
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Ventana</label>
-  <Input type="number" value={form['ventana']} onChange={(e)=>setForm(s=>({...s, 'ventana': e.target.value}))} />
+  <Input type="number" value={form['ventana']} onChange={(e)=>setForm((s: any) =>({...s, 'ventana': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Unidad</label>
-              <Select value={form['unidad']} onValueChange={(v)=>setForm(s=>({...s, 'unidad': v}))}>
+              <Select value={form['unidad']} onValueChange={(v)=>setForm((s: any) =>({...s, 'unidad': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="das">días</SelectItem>
@@ -62,7 +62,7 @@ export default function VentanasPoliticas() {
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Política Exclusión</label>
-              <Select value={form['politica']} onValueChange={(v)=>setForm(s=>({...s, 'politica': v}))}>
+              <Select value={form['politica']} onValueChange={(v)=>setForm((s: any) =>({...s, 'politica': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="ninguna">Ninguna</SelectItem>
@@ -75,7 +75,7 @@ export default function VentanasPoliticas() {
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="activo">Activo</SelectItem>

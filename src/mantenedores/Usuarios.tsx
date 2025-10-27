@@ -31,25 +31,25 @@ export default function Usuarios() {
             
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Usuario</label>
-  <Input type="text" value={form['usuario']} onChange={(e)=>setForm(s=>({...s, 'usuario': e.target.value}))} />
+  <Input type="text" value={form['usuario']} onChange={(e)=>setForm((s: any) =>({...s, 'usuario': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Nombre</label>
-  <Input type="text" value={form['nombre']} onChange={(e)=>setForm(s=>({...s, 'nombre': e.target.value}))} />
+  <Input type="text" value={form['nombre']} onChange={(e)=>setForm((s: any) =>({...s, 'nombre': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Correo</label>
-  <Input type="email" value={form['correo']} onChange={(e)=>setForm(s=>({...s, 'correo': e.target.value}))} />
+  <Input type="email" value={form['correo']} onChange={(e)=>setForm((s: any) =>({...s, 'correo': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Rol</label>
-              <Select value={form['rol']} onValueChange={(v)=>setForm(s=>({...s, 'rol': v}))}>
+              <Select value={form['rol']} onValueChange={(v)=>setForm((s: any) =>({...s, 'rol': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="planificacin">Planificación</SelectItem>
@@ -65,13 +65,13 @@ export default function Usuarios() {
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Empresa/Proveedor</label>
-  <Input type="text" value={form['empresa']} onChange={(e)=>setForm(s=>({...s, 'empresa': e.target.value}))} />
+  <Input type="text" value={form['empresa']} onChange={(e)=>setForm((s: any) =>({...s, 'empresa': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="activo">Activo</SelectItem>

@@ -1,32 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	// 1. Rutas de contenido: Le dice a Tailwind qué archivos escanear
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-	// 2. Modo de tema: Usa variables CSS (lo configura Shadcn)
-	darkMode: ["class"],
+	// Soporta tanto .dark como [data-theme="dark"]
+	darkMode: ["class", '[data-theme="dark"]'],
 
 	theme: {
 		container: {
 			center: true,
 			padding: "2rem",
-			screens: {
-				"2xl": "1400px",
-			},
+			screens: { "2xl": "1400px" },
 		},
 		extend: {
 			colors: {
-				// --- COLORES CORPORATIVOS UNILEVER ---
-				// Se define el color primario usando la aproximación HSL del #0F0E9A
+				// --- Tokens base que faltaban ---
+				background: "hsl(var(--background))",
+				foreground: "hsl(var(--foreground))",
+				muted: "hsl(var(--muted))",
+				"muted-foreground": "hsl(var(--muted-foreground))",
+
+				// --- Tu paleta corporativa ---
 				primary: {
-					DEFAULT: "hsl(240 90% 33%)", // Azul de Unilever
-					foreground: "hsl(0 0% 100%)", // Texto blanco sobre el azul
-				},
-				// Color para alertas y errores (e.g., ZC, No Conforme)
-				destructive: {
-					DEFAULT: "hsl(0 84.2% 60.2%)", // Rojo estándar de alerta
+					DEFAULT: "hsl(240 90% 33%)",
 					foreground: "hsl(0 0% 100%)",
 				},
-				// --- COLORES BASE DE SHADCN (Necesarios para el resto de componentes) ---
+				destructive: {
+					DEFAULT: "hsl(0 84.2% 60.2%)",
+					foreground: "hsl(0 0% 100%)",
+				},
+
+				// --- Tokens shadcn restantes (ya los tenías) ---
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",

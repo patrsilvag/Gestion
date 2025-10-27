@@ -31,37 +31,37 @@ export default function Scoring() {
             
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Versión</label>
-  <Input type="text" value={form['version']} onChange={(e)=>setForm(s=>({...s, 'version': e.target.value}))} />
+  <Input type="text" value={form['version']} onChange={(e)=>setForm((s: any) =>({...s, 'version': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Vigencia Desde</label>
-  <Input type="date" value={form['desde']} onChange={(e)=>setForm(s=>({...s, 'desde': e.target.value}))} />
+  <Input type="date" value={form['desde']} onChange={(e)=>setForm((s: any) =>({...s, 'desde': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Vigencia Hasta</label>
-  <Input type="date" value={form['hasta']} onChange={(e)=>setForm(s=>({...s, 'hasta': e.target.value}))} />
+  <Input type="date" value={form['hasta']} onChange={(e)=>setForm((s: any) =>({...s, 'hasta': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Peso Alfa %</label>
-  <Input type="number" value={form['peso_alfa']} onChange={(e)=>setForm(s=>({...s, 'peso_alfa': e.target.value}))} />
+  <Input type="number" value={form['peso_alfa']} onChange={(e)=>setForm((s: any) =>({...s, 'peso_alfa': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Peso OTIF %</label>
-  <Input type="number" value={form['peso_otif']} onChange={(e)=>setForm(s=>({...s, 'peso_otif': e.target.value}))} />
+  <Input type="number" value={form['peso_otif']} onChange={(e)=>setForm((s: any) =>({...s, 'peso_otif': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="borrador">Borrador</SelectItem>

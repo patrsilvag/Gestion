@@ -31,13 +31,13 @@ export default function TiposDocumento() {
             
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Código</label>
-  <Input type="text" value={form['codigo']} onChange={(e)=>setForm(s=>({...s, 'codigo': e.target.value}))} />
+  <Input type="text" value={form['codigo']} onChange={(e)=>setForm((s: any) =>({...s, 'codigo': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Tipo</label>
-              <Select value={form['tipo']} onValueChange={(v)=>setForm(s=>({...s, 'tipo': v}))}>
+              <Select value={form['tipo']} onValueChange={(v)=>setForm((s: any) =>({...s, 'tipo': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="gua">Guía</SelectItem>
@@ -50,19 +50,19 @@ export default function TiposDocumento() {
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Extensiones</label>
-  <Input type="text" value={form['extensiones']} onChange={(e)=>setForm(s=>({...s, 'extensiones': e.target.value}))} />
+  <Input type="text" value={form['extensiones']} onChange={(e)=>setForm((s: any) =>({...s, 'extensiones': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Peso Máx (MB)</label>
-  <Input type="number" value={form['peso']} onChange={(e)=>setForm(s=>({...s, 'peso': e.target.value}))} />
+  <Input type="number" value={form['peso']} onChange={(e)=>setForm((s: any) =>({...s, 'peso': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Obligatorio por evento</label>
-              <Select value={form['obligatorio']} onValueChange={(v)=>setForm(s=>({...s, 'obligatorio': v}))}>
+              <Select value={form['obligatorio']} onValueChange={(v)=>setForm((s: any) =>({...s, 'obligatorio': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="recepcin">Recepción</SelectItem>
@@ -75,7 +75,7 @@ export default function TiposDocumento() {
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="activo">Activo</SelectItem>
