@@ -31,25 +31,25 @@ export default function FamiliasCategorias() {
             
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Código</label>
-  <Input type="text" value={form['codigo']} onChange={(e)=>setForm(s=>({...s, 'codigo': e.target.value}))} />
+  <Input type="text" value={form['codigo']} onChange={(e)=>setForm((s: any) =>({...s, 'codigo': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Familia</label>
-  <Input type="text" value={form['familia']} onChange={(e)=>setForm(s=>({...s, 'familia': e.target.value}))} />
+  <Input type="text" value={form['familia']} onChange={(e)=>setForm((s: any) =>({...s, 'familia': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Categoría</label>
-  <Input type="text" value={form['categoria']} onChange={(e)=>setForm(s=>({...s, 'categoria': e.target.value}))} />
+  <Input type="text" value={form['categoria']} onChange={(e)=>setForm((s: any) =>({...s, 'categoria': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="activo">Activo</SelectItem>

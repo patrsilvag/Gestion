@@ -31,37 +31,37 @@ export default function Maquiladores() {
             
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Código</label>
-  <Input type="text" value={form['codigo']} onChange={(e)=>setForm(s=>({...s, 'codigo': e.target.value}))} />
+  <Input type="text" value={form['codigo']} onChange={(e)=>setForm((s: any) =>({...s, 'codigo': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Razón Social</label>
-  <Input type="text" value={form['razon']} onChange={(e)=>setForm(s=>({...s, 'razon': e.target.value}))} />
+  <Input type="text" value={form['razon']} onChange={(e)=>setForm((s: any) =>({...s, 'razon': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Contacto</label>
-  <Input type="text" value={form['contacto']} onChange={(e)=>setForm(s=>({...s, 'contacto': e.target.value}))} />
+  <Input type="text" value={form['contacto']} onChange={(e)=>setForm((s: any) =>({...s, 'contacto': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Correo</label>
-  <Input type="email" value={form['correo']} onChange={(e)=>setForm(s=>({...s, 'correo': e.target.value}))} />
+  <Input type="email" value={form['correo']} onChange={(e)=>setForm((s: any) =>({...s, 'correo': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Tolerancia Merma %</label>
-  <Input type="number" value={form['tolerancia']} onChange={(e)=>setForm(s=>({...s, 'tolerancia': e.target.value}))} />
+  <Input type="number" value={form['tolerancia']} onChange={(e)=>setForm((s: any) =>({...s, 'tolerancia': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="activo">Activo</SelectItem>

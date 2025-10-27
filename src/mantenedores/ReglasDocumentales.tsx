@@ -31,13 +31,13 @@ export default function ReglasDocumentales() {
             
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Regla</label>
-  <Input type="text" value={form['regla']} onChange={(e)=>setForm(s=>({...s, 'regla': e.target.value}))} />
+  <Input type="text" value={form['regla']} onChange={(e)=>setForm((s: any) =>({...s, 'regla': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Evento</label>
-              <Select value={form['evento']} onValueChange={(v)=>setForm(s=>({...s, 'evento': v}))}>
+              <Select value={form['evento']} onValueChange={(v)=>setForm((s: any) =>({...s, 'evento': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="recepcin">Recepción</SelectItem>
@@ -50,19 +50,19 @@ export default function ReglasDocumentales() {
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Validaciones</label>
-  <Input type="text" value={form['validaciones']} onChange={(e)=>setForm(s=>({...s, 'validaciones': e.target.value}))} />
+  <Input type="text" value={form['validaciones']} onChange={(e)=>setForm((s: any) =>({...s, 'validaciones': e.target.value}))} />
 </div>
 
 
 <div className="flex flex-col gap-1">
   <label className="text-xs text-muted-foreground">Retención (años)</label>
-  <Input type="number" value={form['retencion']} onChange={(e)=>setForm(s=>({...s, 'retencion': e.target.value}))} />
+  <Input type="number" value={form['retencion']} onChange={(e)=>setForm((s: any) =>({...s, 'retencion': e.target.value}))} />
 </div>
 
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Legal Hold</label>
-              <Select value={form['legalhold']} onValueChange={(v)=>setForm(s=>({...s, 'legalhold': v}))}>
+              <Select value={form['legalhold']} onValueChange={(v)=>setForm((s: any) =>({...s, 'legalhold': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="s">Sí</SelectItem>
@@ -74,7 +74,7 @@ export default function ReglasDocumentales() {
 
             <div className="flex flex-col gap-1">
               <label className="text-xs text-muted-foreground">Estado</label>
-              <Select value={form['estado']} onValueChange={(v)=>setForm(s=>({...s, 'estado': v}))}>
+              <Select value={form['estado']} onValueChange={(v)=>setForm((s: any) =>({...s, 'estado': v}))}>
                 <SelectTrigger className="w-full"><SelectValue placeholder="Selecciona..." /></SelectTrigger>
                 <SelectContent className="z-50 z-[9999]" position="popper" side="bottom" sideOffset={4}>
                   <SelectItem value="activo">Activo</SelectItem>
