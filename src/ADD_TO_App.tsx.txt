@@ -1,0 +1,3 @@
+// Agregar en src/App.tsx
+// import MaquilaActas from "@/pages/MaquilaActas";
+// <Route path="/maquila/actas" element={<MaquilaActas />} />

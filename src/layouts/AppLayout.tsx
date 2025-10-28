@@ -25,6 +25,8 @@ export default function AppLayout({ children }: { children?: ReactNode }) {
             <NavLink to="/proveedores" className={linkCls}>Proveedores</NavLink>
             <NavLink to="/alertas" className={linkCls}>Alertas</NavLink>
             <NavLink to="/dashboard" className={linkCls}>Dashboard</NavLink>
+            {/* 👉 NUEVO: Maquila */}
+            <NavLink to="/maquila/actas" className={linkCls}>Maquila</NavLink>
 
             {/* Mantenedores */}
             <div className="relative group">

@@ -1,0 +1,2 @@
+// En src/layouts/AppLayout.tsx, agrega en el nav principal:
+// <NavLink to="/maquila/actas" className={linkCls}>Maquila</NavLink>

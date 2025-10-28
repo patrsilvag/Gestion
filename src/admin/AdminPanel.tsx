@@ -2,6 +2,7 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Table } from '@/components/ui/table'; // Para gestión de usuarios
 import { Settings } from 'lucide-react';
+import { useFetchUsers, useFetchScoringWeights } from '@/hooks/demoHooks';
 
 export default function AdminPanel() {
   // Lógica BE-01: Hook para obtener usuarios y roles (RBAC)

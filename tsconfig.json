@@ -4,30 +4,23 @@
 		"useDefineForClassFields": true,
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
-		"skipLibCheck": true,
 		"moduleResolution": "Bundler",
+		"skipLibCheck": true,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
+
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["src/*"]
 		},
+
+		"types": ["vite/client"],
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
 		"strict": true
 	},
-	"include": ["src/**/*.ts", "src/**/*.tsx"],
-	"exclude": [
-		"node_modules",
-		"dist",
-
-		// 👇 ESTA ES LA PARTE IMPORTANTE: excluimos módulos WIP con errores
-		"src/admin",
-		"src/dashboard",
-		"src/documentos",
-		"src/maquila",
-		"src/scoring",
-		"src/layouts/layoutsAppLayout.tsx",
-		"src/modules/compromisos/CommitmentForm.tsx"
-	]
+	"include": ["src", "vite-env.d.ts"],
+	"exclude": ["node_modules", "dist"]
 }

@@ -2,7 +2,8 @@
 import { UserNav } from '@/components/user-nav'; // Componente Shadcn para el avatar/menú
 import { MainNav } from '@/components/main-nav'; // Navegación
 
-export default function AppLayout({ children }) {
+import React, { ReactNode } from 'react';
+export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex h-screen flex-col">
       {/* Header con el color Azul Principal de Unilever */}

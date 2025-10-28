@@ -2,6 +2,10 @@
 import { AlertTriangle, TrendingUp, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Table } from '@/components/ui/table';
+import { useFetchDashboardData } from '@/hooks/demoHooks';
 
 export default function OperationalDashboard() {
   // Lógica BE-10: Hook para obtener KPIs, Alertas y Umbrales
@@ -18,7 +22,7 @@ export default function OperationalDashboard() {
           <Badge variant="destructive">{alerts.critical.length} Pendientes</Badge>
         </CardHeader>
         <CardContent className="overflow-visible"><ul className="list-disc pl-5">
-            {alerts.critical.map(alert => (
+            {alerts.critical.map((alert: {id: string; message: string; slaDays: number}) => (
               <li key={alert.id} className="text-sm text-destructive hover:underline cursor-pointer">
                 {alert.message} ({alert.slaDays} días sin resolver)
               </li>

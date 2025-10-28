@@ -1,12 +1,14 @@
 // src/modules/scoring/SupplierScoring.tsx
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { ChevronDown, BarChart3 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useFetchScoringRanking } from '@/hooks/demoHooks';
 
 export default function SupplierScoring() {
   // Lógica BE-09: Hook para obtener el ranking de scoring
   const { data: ranking, isLoading } = useFetchScoringRanking();
 
-  const handleDrillDown = (supplierId) => {
+  const handleDrillDown = (supplierId: string) => {
     // Navegar a la vista de detalle para ver los eventos (ZC, Reprogramaciones)
     // que impactaron el score (Flujo HU5)
   }
@@ -26,7 +28,7 @@ export default function SupplierScoring() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {ranking.map((row) => (
+          {ranking.map((row: any) => (
             <TableRow key={row.id}>
               <TableCell className="font-medium">{row.supplierName}</TableCell>
               <TableCell>{row.score}</TableCell>
