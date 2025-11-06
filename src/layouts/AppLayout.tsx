@@ -20,7 +20,9 @@ export default function AppLayout({ children }: { children?: ReactNode }) {
 				<div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
 					{/* Branding */}
 					<div className="flex items-center gap-2">
-						<span className="text-base font-semibold">Gestión OC</span>
+						<span className="text-base font-semibold">
+							Cyt - Gestion Proveedores
+						</span>
 					</div>
 
 					{/* Botón mobile */}
